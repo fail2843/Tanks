@@ -22,8 +22,8 @@ public class CameraControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
-        Zoom();
+        //Move();
+        //Zoom();
     }
 
 

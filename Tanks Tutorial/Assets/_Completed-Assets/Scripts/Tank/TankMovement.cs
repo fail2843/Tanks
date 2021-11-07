@@ -28,8 +28,8 @@ namespace Complete
 
         private void OnEnable ()
         {
-            // When the tank is turned on, make sure it's not kinematic.
-            m_Rigidbody.isKinematic = false;
+            // When the tank is turned on, make sure it's kinematic.
+            m_Rigidbody.isKinematic = true;
 
             // Also reset the input values.
             m_MovementInputValue = 0f;
@@ -111,20 +111,8 @@ namespace Complete
         private void FixedUpdate ()
         {
             // Adjust the rigidbodies position and orientation in FixedUpdate.
-            Move ();
             Turn ();
         }
-
-
-        private void Move ()
-        {
-            // Create a vector in the direction the tank is facing with a magnitude based on the input, speed and the time between frames.
-            Vector3 movement = transform.forward * m_MovementInputValue * m_Speed * Time.deltaTime;
-
-            // Apply this movement to the rigidbody's position.
-            m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
-        }
-
 
         private void Turn ()
         {
